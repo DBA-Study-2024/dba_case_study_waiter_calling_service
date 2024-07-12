@@ -1,0 +1,38 @@
+enum AlertState {
+  ACTIVE
+  WARNING
+  PRIORITY
+  ACKNOWLEDGED
+  CANCELLED
+}
+
+enum AlertType {
+  BILL
+  CALL
+}
+
+type Alert @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  AlertType: AlertType
+  AlertStatus: AlertState
+  CreatedAt: String
+  UpdatedAt: String
+}
+
+type TableWaiterMap @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Table: Table @hasOne
+  Waiter: Waiter @hasOne
+}
+
+type Table @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  TableNo: Int!
+  Enabled: Boolean
+}
+
+type Waiter @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String!
+  Enabled: Boolean
+}
