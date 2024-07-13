@@ -1,0 +1,68 @@
+{
+  "api": {
+    "iassist": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "iassist": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_iassist_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "iassist"
+        }
+      ]
+    },
+    "AMPLIFY_auth_iassist_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "iassist"
+        }
+      ]
+    },
+    "AMPLIFY_auth_iassist_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "iassist"
+        }
+      ]
+    },
+    "AMPLIFY_auth_iassist_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "iassist"
+        }
+      ]
+    }
+  }
+}
